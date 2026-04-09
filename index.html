@@ -231,7 +231,7 @@
 
     /* ===== Journey / Timeline ===== */
     .journey-section {
-      padding: 128px 32px 96px; max-width: 56vw; margin: 0 auto;
+      padding: 128px 32px 96px; max-width: 68vw; margin: 0 auto;
       position: relative;
     }
     .section-watermark {
@@ -253,11 +253,11 @@
     .section-header p { color: #8B8B8B; font-size: 14px; font-weight: 300; letter-spacing: 0.05em; }
 
     .timeline {
-      position: relative; padding: 0 0 0 200px;
+      position: relative; padding: 0 0 0 160px;
       counter-reset: timeline;
     }
     .timeline::before {
-      content: ''; position: absolute; left: 190px; top: 0; bottom: 0;
+      content: ''; position: absolute; left: 150px; top: 0; bottom: 0;
       width: 2px;
       background: linear-gradient(to bottom,
         transparent,
@@ -284,8 +284,8 @@
 
     /* Period label — on the left side of timeline */
     .timeline-period {
-      position: absolute; right: calc(100% + 36px); top: 20px;
-      width: 140px; text-align: right;
+      position: absolute; right: calc(100% + 30px); top: 20px;
+      width: 110px; text-align: right;
       font-size: 14px; color: #6b7280; font-weight: 500;
       white-space: nowrap;
     }
@@ -573,6 +573,7 @@
       padding: 3px 10px; font-size: 11px; border-radius: 9999px;
       background: rgba(139, 158, 130, 0.08); color: var(--color-neon-purple);
       border: 1px solid rgba(139, 158, 130, 0.15);
+      white-space: nowrap; flex-shrink: 0;
     }
     .timeline-card .course-tag.tag-red {
       background: rgba(139, 158, 130, 0.08); color: var(--color-neon-purple);
