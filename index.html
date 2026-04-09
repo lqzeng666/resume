@@ -593,6 +593,7 @@
       flex: 1; transition: all 0.4s; cursor: default;
       display: flex; flex-direction: column;
       opacity: 0; transform: translateY(30px);
+      min-height: 0;
     }
     .project-card.visible {
       opacity: 1; transform: translateY(0);
@@ -609,6 +610,7 @@
       position: relative;
       overflow: hidden;
       display: flex; flex-direction: column;
+      flex: 1;
     }
     .project-card .proj-inner::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
@@ -712,7 +714,7 @@
       white-space: nowrap;
     }
     .project-card .proj-tags {
-      display: flex; flex-wrap: wrap; gap: 5px; margin-top: 12px;
+      display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto;
       padding-top: 10px;
       border-top: 1px solid rgba(0,0,0,0.04);
     }
