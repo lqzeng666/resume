@@ -729,7 +729,7 @@
     }
     .proj-carousel-scene {
       width: 100%;
-      height: auto;
+      height: 560px;
       position: relative;
       display: flex;
       align-items: flex-start;
@@ -742,6 +742,7 @@
       position: absolute;
       width: var(--gallery-card-width, 400px);
       max-width: 90vw;
+      height: 100%;
       transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
       cursor: pointer;
       display: flex; flex-direction: column;
@@ -781,6 +782,7 @@
       overflow: hidden;
       display: flex; flex-direction: column;
       flex: 1;
+      min-height: 480px;
     }
     .project-card.active .proj-inner {
       box-shadow: 0 12px 48px rgba(0,0,0,0.1);
@@ -1044,24 +1046,21 @@
         margin-bottom: 32px !important;
       }
       .proj-timeline-nav {
-        padding: 0 !important;
-        margin-bottom: 24px !important;
+        display: none !important;
       }
-      .proj-timeline-line { height: 2px !important; }
-      .proj-timeline-node { padding: 0 8px !important; }
-      .proj-timeline-year { font-size: 11px !important; }
-      .proj-timeline-dot { width: 8px !important; height: 8px !important; }
+      .proj-carousel-scene {
+        height: auto !important;
+      }
       .project-card {
         width: calc(100vw - 32px) !important;
         margin-left: 0 !important;
         margin-bottom: 24px !important;
+        position: relative !important;
+        height: auto !important;
       }
-
-      .project-card {
-        width: calc(100vw - 64px) !important;
-        margin-left: 0 !important;
+      .project-card .proj-inner {
+        min-height: 400px !important;
       }
-      .proj-timeline-node .proj-tl-title { display: none; }
       .proj-gallery-hint { display: none; }
       .proj-carousel-scene {
         flex-direction: column;
@@ -1348,28 +1347,6 @@
       <h2>
         <span class="text-gradient i18n" data-en="Commercialization X AI Projects" data-zh="商业化 X AI 项目">商业化 X AI 项目</span>
       </h2>
-    </div>
-
-    <!-- Timeline Navigation -->
-    <div class="proj-timeline-nav">
-      <div class="proj-timeline-line"></div>
-      <div class="proj-timeline-nodes">
-        <div class="proj-timeline-node active" data-index="0" onclick="galleryGoTo(0)">
-          <div class="proj-tl-dot"></div>
-          <div class="proj-tl-year">2023</div>
-          <div class="proj-tl-title">Lazada AIGC 机器人</div>
-        </div>
-        <div class="proj-timeline-node" data-index="1" onclick="galleryGoTo(1)">
-          <div class="proj-tl-dot"></div>
-          <div class="proj-tl-year">2024</div>
-          <div class="proj-tl-title">微信客服智能体</div>
-        </div>
-        <div class="proj-timeline-node" data-index="2" onclick="galleryGoTo(2)">
-          <div class="proj-tl-dot"></div>
-          <div class="proj-tl-year">2025</div>
-          <div class="proj-tl-title">九图素材AI衍生</div>
-        </div>
-      </div>
     </div>
 
     <!-- Stacked Card Carousel Stage -->
