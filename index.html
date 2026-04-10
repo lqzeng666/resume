@@ -583,25 +583,120 @@
 
     /* ===== Projects Section ===== */
     .skills-section {
-      padding: 96px 32px; max-width: 1200px; margin: 0 auto;
+      padding: 96px 0; max-width: 1200px; margin: 0 auto;
     }
-    .projects-grid {
-      display: flex; gap: 20px;
-      align-items: stretch;
+    .skills-section .section-header {
+      padding: 0 32px;
     }
+
+    /* ===== Gallery Timeline ===== */
+    .proj-timeline-nav {
+      position: relative;
+      display: flex; align-items: center;
+      justify-content: center;
+      padding: 0 32px;
+      margin-bottom: 32px;
+      gap: 0;
+    }
+    .proj-timeline-line {
+      display: none;
+    }
+    .proj-timeline-nodes {
+      display: flex; gap: 40px;
+      position: relative; z-index: 1;
+    }
+    .proj-timeline-node {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      cursor: pointer;
+      transition: all 0.4s;
+      padding: 4px 12px;
+      opacity: 0.5;
+    }
+    .proj-timeline-node:hover { opacity: 0.8; }
+    .proj-timeline-node:hover .proj-tl-dot { transform: scale(1.3); }
+    .proj-timeline-node.active { opacity: 1; }
+    .proj-tl-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(212, 117, 107, 0.25);
+      border: 2px solid rgba(212, 117, 107, 0.35);
+      transition: all 0.4s;
+      box-shadow: 0 0 0 0 rgba(212,117,107,0);
+    }
+    .proj-timeline-node.active .proj-tl-dot {
+      background: var(--color-neon-cyan);
+      border-color: var(--color-neon-cyan);
+      transform: scale(1.4);
+      box-shadow: 0 0 0 5px rgba(212,117,107,0.12);
+    }
+    .proj-tl-year {
+      font-size: 11px; color: #B0A89E; font-weight: 500;
+      letter-spacing: 0.04em; white-space: nowrap;
+      transition: color 0.4s;
+    }
+    .proj-timeline-node.active .proj-tl-year { color: var(--color-neon-cyan); font-weight: 600; }
+    .proj-tl-title {
+      font-size: 10.5px; color: #C8C0B8; text-align: center;
+      max-width: 120px; line-height: 1.4;
+      transition: color 0.4s;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .proj-timeline-node.active .proj-tl-title { color: #3D3D3D; }
+
+    /* (top-nav removed) */
+
+    /* ===== Stacked Card Carousel ===== */
+    .proj-gallery-stage {
+      position: relative;
+      padding: 8px 0;
+      overflow: visible;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .proj-carousel-scene {
+      width: 100%;
+      height: auto;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      transition: none;
+    }
+
+    /* Gallery Card — Stacked layout */
     .project-card {
-      flex: 1; transition: all 0.4s; cursor: default;
+      position: absolute;
+      width: var(--gallery-card-width, 400px);
+      max-width: 90vw;
+      transition: all 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+      cursor: pointer;
       display: flex; flex-direction: column;
-      opacity: 0; transform: translateY(30px);
-      min-height: 0;
+      pointer-events: auto;
     }
-    .project-card.visible {
-      opacity: 1; transform: translateY(0);
-      transition: all 0.6s ease-out;
+    .project-card.active {
+      opacity: 1;
+      filter: none;
+      cursor: default;
+      z-index: 30;
+      transform: translateX(0) scale(1);
     }
-    .project-card:nth-child(1).visible { transition-delay: 0s; }
-    .project-card:nth-child(2).visible { transition-delay: 0.12s; }
-    .project-card:nth-child(3).visible { transition-delay: 0.24s; }
+    .project-card.prev {
+      opacity: 0.5;
+      filter: brightness(0.7) saturate(0.3) grayscale(0.4);
+      z-index: 20;
+      transform: translateX(-65%) scale(0.88);
+    }
+    .project-card.next {
+      opacity: 0.5;
+      filter: brightness(0.7) saturate(0.3) grayscale(0.4);
+      z-index: 20;
+      transform: translateX(65%) scale(0.88);
+    }
+    .project-card.hidden {
+      opacity: 0;
+      z-index: 0;
+      transform: translateX(0) scale(0.8);
+      pointer-events: none;
+    }
     .project-card .proj-inner {
       background: #FFFCF9; border-radius: 16px; padding: 22px 22px 20px;
       border: 1px solid rgba(0,0,0,0.05);
@@ -612,18 +707,23 @@
       display: flex; flex-direction: column;
       flex: 1;
     }
+    .project-card.active .proj-inner {
+      box-shadow: 0 12px 48px rgba(0,0,0,0.1);
+      border-color: rgba(212, 117, 107, 0.18);
+    }
     .project-card .proj-inner::before {
       content: ''; position: absolute; left: 0; top: 0; bottom: 0;
       width: 4px; border-radius: 4px 0 0 4px;
       background: linear-gradient(180deg, var(--color-neon-cyan), var(--color-neon-purple));
-      opacity: 0.6; transition: opacity 0.4s;
+      opacity: 0.15; transition: opacity 0.5s;
     }
-    .project-card:hover .proj-inner {
-      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
-      transform: translateY(-4px);
-      border-color: rgba(212, 117, 107, 0.2);
+    .project-card.active .proj-inner::before { opacity: 1; }
+    .project-card.prev .proj-inner::before,
+    .project-card.next .proj-inner::before { opacity: 0.3; }
+    .project-card.adjacent:hover .proj-inner {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+      border-color: rgba(212, 117, 107, 0.12);
     }
-    .project-card:hover .proj-inner::before { opacity: 1; }
     .project-card .proj-header {
       display: flex; align-items: flex-start; gap: 12px; margin-bottom: 6px;
     }
@@ -638,10 +738,15 @@
       font-size: 14px; font-weight: 600; color: #2D2D2D;
       font-family: 'Noto Serif JP', serif;
       line-height: 1.35;
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .project-card .proj-date {
+      font-size: 11px; font-weight: 400; color: #B0A89E;
+      white-space: nowrap;
     }
     .project-card .proj-sub {
-      font-size: 11px; color: #B0A89E; margin-bottom: 12px;
-      padding-left: 50px;
+      font-size: 11px; color: #B0A89E; margin-top: 4px;
+      padding-left: 0;
       letter-spacing: 0.02em;
     }
     .project-card .proj-desc {
@@ -716,7 +821,6 @@
     .project-card .proj-tags {
       display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto;
       padding-top: 10px;
-      border-top: 1px solid rgba(0,0,0,0.04);
     }
     .project-card .proj-tag {
       padding: 4px 12px; font-size: 10px; border-radius: 9999px;
@@ -725,10 +829,66 @@
       transition: all 0.3s; font-weight: 500;
       letter-spacing: 0.02em;
     }
-    .project-card:hover .proj-tag {
+    .project-card.active .proj-tag {
       background: rgba(212, 117, 107, 0.06);
       border-color: rgba(212, 117, 107, 0.15);
       color: var(--color-neon-cyan-dim);
+    }
+
+    /* Gallery Nav Controls */
+    .proj-gallery-controls {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px;
+      margin-top: 16px;
+      padding: 10px 32px;
+      position: relative;
+      z-index: 100;
+    }
+    .proj-gallery-arrow {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid rgba(0,0,0,0.1);
+      background: rgba(255,252,249,0.95);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: all 0.3s;
+      color: #8B8B8B; font-size: 15px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 101;
+    }
+    .proj-gallery-arrow:hover {
+      border-color: rgba(212,117,107,0.3);
+      color: var(--color-neon-cyan);
+      box-shadow: 0 4px 20px rgba(212,117,107,0.15);
+      transform: scale(1.1);
+    }
+    .proj-gallery-arrow:disabled {
+      opacity: 0.25; cursor: not-allowed; pointer-events: none;
+    }
+    .proj-gallery-dots {
+      display: flex; gap: 10px; align-items: center;
+    }
+    .proj-gallery-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(212, 117, 107, 0.2);
+      cursor: pointer; transition: all 0.4s;
+    }
+    .proj-gallery-dot.active {
+      background: var(--color-neon-cyan);
+      width: 24px; border-radius: 3.5px;
+      box-shadow: 0 0 8px rgba(212,117,107,0.35);
+    }
+    .proj-gallery-dot:hover:not(.active) {
+      background: rgba(212, 117, 107, 0.45);
+      transform: scale(1.3);
+    }
+    /* Gallery hint text */
+    .proj-gallery-hint {
+      font-size: 11px; color: #A09890; letter-spacing: 0.04em;
+      display: flex; align-items: center; gap: 4px;
+      font-weight: 500;
+      opacity: 0.7;
     }
 
     /* ===== Footer ===== */
@@ -765,7 +925,16 @@
       .section-watermark { display: none !important; }
       .nav-tab span.tab-label { display: none; }
 
-      .projects-grid { flex-direction: column; }
+      .project-card {
+        width: calc(100vw - 64px) !important;
+        margin-left: 0 !important;
+      }
+      .proj-timeline-node .proj-tl-title { display: none; }
+      .proj-gallery-hint { display: none; }
+      .proj-carousel-scene {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     @media (min-width: 769px) {
@@ -1049,99 +1218,42 @@
       </h2>
     </div>
 
-    <div class="projects-grid">
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="proj-inner">
-          <div class="proj-header">
-            <div class="proj-icon">📊</div>
-            <div class="proj-title">朋友圈九图素材AI衍生专项</div>
-          </div>
-          <div class="proj-sub">腾讯微信广告部 · 2025.9 - 至今 · 深圳</div>
-          <div class="proj-desc" id="projDesc1">
-            <p><strong>项目背景：</strong>朋友圈为重图文消费场景，图片素材投放效率显著优于视频（<span class="hl hl-bg">33%</span>图片素材贡献<span class="hl hl-bg">67%</span>大盘消耗），九图是核心优势规格。为提升九图消耗带动大盘效率提升，需通过AI衍生补齐广告主优势素材供给缺口</p>
-            <div class="proj-highlights">
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">行业策略与生成机制设计</div>
-                <div class="proj-highlight-text">基于各行业跑量素材特征，梳理九图差异化布局类型，制定流量侧生成素材规范；提需建立文生图/图生图/视频生图的相关策略，盘点分行业广告主可输入的原料清单，构建行业九图衍生策略底座</div>
-              </div>
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">多赛道能力落地与效果验证</div>
-                <div class="proj-highlight-text">25年落地小游戏、小店、短剧三类生态预算自动衍生能力；小店AI衍生消耗从<span class="hl hl-bg">0→16万/天</span>（双11峰值），衍生九图CTR <span class="hl hl-bg">1.58%</span>（提升<span class="hl hl-bg">6%</span>）</div>
-              </div>
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">衍生漏斗数据监控与优化</div>
-                <div class="proj-highlight-text">搭建全链路漏斗监控面板，支撑九图AI素材消耗目标达成（占比<span class="hl hl-bg">4%→15%</span>、ARPU提升<span class="hl hl-bg">200%</span>）</div>
-              </div>
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">场景化千人千面广告探索</div>
-                <div class="proj-highlight-text">联合微信平台探索流量场景特色生成式广告，设计素材个性化变形策略</div>
-              </div>
-            </div>
-            <div class="proj-stats">
-              <div class="proj-stat"><span class="proj-stat-num">16万/天</span><span class="proj-stat-label">AI衍生日耗峰值</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">1.58%</span><span class="proj-stat-label">衍生九图CTR</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">200%</span><span class="proj-stat-label">ARPU提升</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">15%</span><span class="proj-stat-label">消耗占比提升</span></div>
-            </div>
-          </div>
-          <div class="proj-tags">
-            <span class="proj-tag">AI素材衍生</span>
-            <span class="proj-tag">朋友圈广告</span>
-            <span class="proj-tag">九图规格</span>
-            <span class="proj-tag">千人千面</span>
-          </div>
+    <!-- Timeline Navigation -->
+    <div class="proj-timeline-nav">
+      <div class="proj-timeline-line"></div>
+      <div class="proj-timeline-nodes">
+        <div class="proj-timeline-node active" data-index="0" onclick="galleryGoTo(0)">
+          <div class="proj-tl-dot"></div>
+          <div class="proj-tl-year">2023</div>
+          <div class="proj-tl-title">Lazada AIGC 机器人</div>
+        </div>
+        <div class="proj-timeline-node" data-index="1" onclick="galleryGoTo(1)">
+          <div class="proj-tl-dot"></div>
+          <div class="proj-tl-year">2024</div>
+          <div class="proj-tl-title">微信客服智能体</div>
+        </div>
+        <div class="proj-timeline-node" data-index="2" onclick="galleryGoTo(2)">
+          <div class="proj-tl-dot"></div>
+          <div class="proj-tl-year">2025</div>
+          <div class="proj-tl-title">九图素材AI衍生</div>
         </div>
       </div>
+    </div>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="proj-inner">
-          <div class="proj-header">
-            <div class="proj-icon">🤖</div>
-            <div class="proj-title">微信客服智能体专项</div>
-          </div>
-          <div class="proj-sub">腾讯微信广告部 · 2024.9 - 2025.6 · 深圳</div>
-          <div class="proj-desc" id="projDesc2">
-            <p><strong>项目背景：</strong>企业后端人力成本持续上涨，对线索质量、成本要求同步提高，需前链路高效筛客；抖音、小红书已验证私信筛客模式价值，启动微信客服智能体专项</p>
-            <div class="proj-highlights">
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">行业需求与竞品能力调研</div>
-                <div class="proj-highlight-text">完成房家、教育、本地、消费医疗等线索行业高潜赛道摸排，结合竞品分析与客户访谈，输出产品规划</div>
-              </div>
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">智能体测试与效果验证</div>
-                <div class="proj-highlight-text">联动混元团队落地成人教育2家、本地旅游2家客户测试；教育赛道转化率提升<span class="hl hl-bg">20%</span>至<span class="hl hl-bg">3.6%</span>、有效率提升<span class="hl hl-bg">10pp</span>至<span class="hl hl-bg">55%</span>、成本下降<span class="hl hl-bg">20元</span>至<span class="hl hl-bg">320元</span></div>
-              </div>
-              <div class="proj-highlight-item">
-                <div class="proj-highlight-label">产品能力规划与长期策略</div>
-                <div class="proj-highlight-text">推进对话话术调优与功能迭代，联合企微平台探索会话工具升级，形成"功能升级+策略迭代"的长期优化路径</div>
-              </div>
-            </div>
-            <div class="proj-stats">
-              <div class="proj-stat"><span class="proj-stat-num">3.6%</span><span class="proj-stat-label">转化率提升</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">55%</span><span class="proj-stat-label">线索有效率</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">-20元</span><span class="proj-stat-label">成本下降</span></div>
-              <div class="proj-stat"><span class="proj-stat-num">4家</span><span class="proj-stat-label">落地测试客户</span></div>
-            </div>
-          </div>
-          <div class="proj-tags">
-            <span class="proj-tag">AI Agent</span>
-            <span class="proj-tag">智能筛客</span>
-            <span class="proj-tag">微信客服</span>
-            <span class="proj-tag">AB测试</span>
-          </div>
-        </div>
-      </div>
+    <!-- Stacked Card Carousel Stage -->
+    <div class="proj-gallery-stage" id="galleryStage">
+      <div class="proj-carousel-scene" id="carouselScene">
 
-      <!-- Project 3 -->
-      <div class="project-card">
-        <div class="proj-inner">
+      <!-- Project 3 (时间最早：2023 Lazada) -->
+      <div class="project-card active" data-gallery-index="0">
+          <div class="proj-inner">
           <div class="proj-header">
             <div class="proj-icon">💬</div>
-            <div class="proj-title">投放端AIGC智能营销机器人</div>
+            <div>
+              <div class="proj-title">投放端AIGC智能营销机器人 <span class="proj-date">2023.5 - 2024.2</span></div>
+              <div class="proj-sub">阿里巴巴Lazada Group · 广告团队</div>
+            </div>
           </div>
-          <div class="proj-sub">阿里巴巴Lazada Group · 广告团队 · 2023.5 - 2024.2</div>
           <div class="proj-desc" id="projDesc3">
             <p><strong>项目目标：</strong>通过类 ChatGPT 智能机器人赋能商业化三端——运营侧提效、广告主侧投放提效、平台侧收集一手需求指导迭代；破解东南亚投放场景中知识储备薄弱、表单式建议采纳率低的痛点</p>
             <div class="proj-highlights">
@@ -1179,6 +1291,106 @@
           </div>
         </div>
       </div>
+
+      <!-- Project 2 (2024 微信客服) -->
+      <div class="project-card" data-gallery-index="1">
+          <div class="proj-inner">
+          <div class="proj-header">
+            <div class="proj-icon">🤖</div>
+            <div>
+              <div class="proj-title">微信客服智能体专项 <span class="proj-date">2024.9 - 2025.6</span></div>
+              <div class="proj-sub">腾讯微信广告部 · 深圳</div>
+            </div>
+          </div>
+          <div class="proj-desc" id="projDesc2">
+            <p><strong>项目背景：</strong>企业后端人力成本持续上涨，对线索质量、成本要求同步提高，需前链路高效筛客；抖音、小红书已验证私信筛客模式价值，启动微信客服智能体专项</p>
+            <div class="proj-highlights">
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">行业需求与竞品能力调研</div>
+                <div class="proj-highlight-text">完成房家、教育、本地、消费医疗等线索行业高潜赛道摸排，结合竞品分析与客户访谈，输出产品规划</div>
+              </div>
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">智能体测试与效果验证</div>
+                <div class="proj-highlight-text">联动混元团队落地成人教育2家、本地旅游2家客户测试；教育赛道转化率提升<span class="hl hl-bg">20%</span>至<span class="hl hl-bg">3.6%</span>、有效率提升<span class="hl hl-bg">10pp</span>至<span class="hl hl-bg">55%</span>、成本下降<span class="hl hl-bg">20元</span>至<span class="hl hl-bg">320元</span></div>
+              </div>
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">产品能力规划与长期策略</div>
+                <div class="proj-highlight-text">推进对话话术调优与功能迭代，联合企微平台探索会话工具升级，形成"功能升级+策略迭代"的长期优化路径</div>
+              </div>
+            </div>
+            <div class="proj-stats">
+              <div class="proj-stat"><span class="proj-stat-num">3.6%</span><span class="proj-stat-label">转化率提升</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">55%</span><span class="proj-stat-label">线索有效率</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">-20元</span><span class="proj-stat-label">成本下降</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">4家</span><span class="proj-stat-label">落地测试客户</span></div>
+            </div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">AI Agent</span>
+            <span class="proj-tag">智能筛客</span>
+            <span class="proj-tag">微信客服</span>
+            <span class="proj-tag">AB测试</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 1 (2025 朋友圈九图) -->
+      <div class="project-card" data-gallery-index="2">
+          <div class="proj-inner">
+          <div class="proj-header">
+            <div class="proj-icon">📊</div>
+            <div>
+              <div class="proj-title">朋友圈九图素材AI衍生专项 <span class="proj-date">2025.9 - 至今</span></div>
+              <div class="proj-sub">腾讯微信广告部 · 深圳</div>
+            </div>
+          </div>
+          <div class="proj-desc" id="projDesc1">
+            <p><strong>项目背景：</strong>朋友圈为重图文消费场景，图片素材投放效率显著优于视频（<span class="hl hl-bg">33%</span>图片素材贡献<span class="hl hl-bg">67%</span>大盘消耗），九图是核心优势规格。为提升九图消耗带动大盘效率提升，需通过AI衍生补齐广告主优势素材供给缺口</p>
+            <div class="proj-highlights">
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">行业策略与生成机制设计</div>
+                <div class="proj-highlight-text">基于各行业跑量素材特征，梳理九图差异化布局类型，制定流量侧生成素材规范；提需建立文生图/图生图/视频生图的相关策略，盘点分行业广告主可输入的原料清单，构建行业九图衍生策略底座</div>
+              </div>
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">多赛道能力落地与效果验证</div>
+                <div class="proj-highlight-text">25年落地小游戏、小店、短剧三类生态预算自动衍生能力；小店AI衍生消耗从<span class="hl hl-bg">0→16万/天</span>（双11峰值），衍生九图CTR <span class="hl hl-bg">1.58%</span>（提升<span class="hl hl-bg">6%</span>）</div>
+              </div>
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">衍生漏斗数据监控与优化</div>
+                <div class="proj-highlight-text">搭建全链路漏斗监控面板，支撑九图AI素材消耗目标达成（占比<span class="hl hl-bg">4%→15%</span>、ARPU提升<span class="hl hl-bg">200%</span>）</div>
+              </div>
+              <div class="proj-highlight-item">
+                <div class="proj-highlight-label">场景化千人千面广告探索</div>
+                <div class="proj-highlight-text">联合微信平台探索流量场景特色生成式广告，设计素材个性化变形策略</div>
+              </div>
+            </div>
+            <div class="proj-stats">
+              <div class="proj-stat"><span class="proj-stat-num">16万/天</span><span class="proj-stat-label">AI衍生日耗峰值</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">1.58%</span><span class="proj-stat-label">衍生九图CTR</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">200%</span><span class="proj-stat-label">ARPU提升</span></div>
+              <div class="proj-stat"><span class="proj-stat-num">15%</span><span class="proj-stat-label">消耗占比提升</span></div>
+            </div>
+          </div>
+          <div class="proj-tags">
+            <span class="proj-tag">AI素材衍生</span>
+            <span class="proj-tag">朋友圈广告</span>
+            <span class="proj-tag">九图规格</span>
+            <span class="proj-tag">千人千面</span>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- /proj-carousel-scene -->
+    </div><!-- /proj-gallery-stage -->
+
+    <!-- Gallery Controls (dots only) -->
+    <div class="proj-gallery-controls">
+      <div class="proj-gallery-dots" id="galleryDots">
+        <div class="proj-gallery-dot active" onclick="galleryGoTo(0)"></div>
+        <div class="proj-gallery-dot" onclick="galleryGoTo(1)"></div>
+        <div class="proj-gallery-dot" onclick="galleryGoTo(2)"></div>
+      </div>
+
     </div>
   </section>
 
@@ -1334,6 +1546,105 @@
     document.querySelectorAll('.project-card').forEach(el => {
       observer.observe(el);
     });
+
+    // ===== Flat Card Carousel =====
+    (function() {
+      const TOTAL = 3;
+      let current = 0;
+
+      const stage = document.getElementById('galleryStage');
+      const cards = Array.from(document.querySelectorAll('.project-card'));
+      const dots = Array.from(document.querySelectorAll('.proj-gallery-dot'));
+      const nodes = Array.from(document.querySelectorAll('.proj-timeline-node'));
+
+      function getCardWidth() {
+        const stageW = stage.getBoundingClientRect().width;
+        if (stageW <= 600) return stageW - 64;
+        return Math.min(420, Math.round(stageW * 0.52));
+      }
+
+      function initLayout() {
+        const stageW = stage.getBoundingClientRect().width;
+        if (stageW === 0) return;
+        const cardW = getCardWidth();
+        document.documentElement.style.setProperty('--gallery-card-width', cardW + 'px');
+        cards.forEach(c => {
+          c.style.marginLeft = '0';
+        });
+        updateCarousel(false);
+      }
+
+      function updateCarousel(animate) {
+        cards.forEach((c, i) => {
+          c.classList.remove('active', 'prev', 'next', 'hidden');
+          let diff = i - current;
+          if (diff > TOTAL / 2) diff -= TOTAL;
+          if (diff < -TOTAL / 2) diff += TOTAL;
+
+          if (diff === 0) {
+            c.classList.add('active');
+          } else if (diff === -1) {
+            c.classList.add('prev');
+          } else if (diff === 1) {
+            c.classList.add('next');
+          } else {
+            c.classList.add('hidden');
+          }
+        });
+
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        nodes.forEach((n, i) => n.classList.toggle('active', i === current));
+      }
+
+      window.galleryGoTo = function(idx) {
+        if (idx < 0) idx = TOTAL - 1;
+        if (idx >= TOTAL) idx = 0;
+        current = idx;
+        updateCarousel(true);
+      };
+
+      window.galleryPrev = function() { galleryGoTo(current - 1); };
+      window.galleryNext = function() { galleryGoTo(current + 1); };
+
+      // Click on non-active cards
+      cards.forEach((c, i) => {
+        c.addEventListener('click', function() {
+          if (i !== current) galleryGoTo(i);
+        });
+      });
+
+      // Keyboard
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') galleryGoTo(current - 1);
+        if (e.key === 'ArrowRight') galleryGoTo(current + 1);
+      });
+
+      // Mouse wheel
+      stage.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        if (e.deltaY > 0 || e.deltaX > 0) galleryGoTo(current + 1);
+        else galleryGoTo(current - 1);
+      }, { passive: false });
+
+      // Init
+      function init() {
+        const stageW = stage.getBoundingClientRect().width;
+        if (stageW === 0) { requestAnimationFrame(init); return; }
+        initLayout();
+        updateCarousel(false);
+      }
+
+      window.addEventListener('resize', () => {
+        initLayout();
+        updateCarousel(false);
+      });
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        requestAnimationFrame(init);
+      }
+    })();
 
     // ===== Tilt Card Effect =====
     document.querySelectorAll('.tilt-card').forEach(card => {
