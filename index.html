@@ -158,7 +158,7 @@
 
     /* ===== Hero Section ===== */
     .hero {
-      min-height: 100vh; display: flex; align-items: center;
+      min-height: 100vh; display: flex; align-items: stretch;
       position: relative; padding-top: 64px;
       box-sizing: border-box;
     }
@@ -265,9 +265,12 @@
 
     .hero-photo {
       position: relative;
-      height: 100%; overflow: hidden;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
       animation: fadeIn 1.5s ease-out;
-      max-height: calc(100vh - 160px);
+      border-radius: 16px;
+      margin: 16px;
     }
     .hero-photo img {
       width: 100%; height: 100%; object-fit: cover;
