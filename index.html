@@ -982,15 +982,50 @@
       .hero-photo img { object-position: center 10%; }
       .hero-name { font-size: 48px; }
 
-      .timeline { padding-left: 28px; }
-      .timeline::before { left: 7px; }
-      .timeline-item .dot { left: -8px !important; }
-      .timeline-period {
-        position: static !important; width: auto !important;
-        text-align: left !important; margin-bottom: -4px;
+      /* ===== Timeline 移动端重写 ===== */
+      .journey-section {
+        padding: 64px 16px 48px !important;
+        max-width: 100% !important;
       }
-      .card-carousel { width: 100%; }
-
+      .timeline {
+        padding-left: 40px !important;
+        padding-right: 16px !important;
+      }
+      .timeline::before {
+        left: 14px !important;
+      }
+      .timeline-item {
+        flex-direction: column !important;
+        margin-bottom: 32px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .timeline-item.right {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      /* 时间点：左移到时间轴线上 */
+      .timeline-item .dot {
+        left: -26px !important;
+        top: 20px !important;
+      }
+      /* 时间标签：改为普通文本，堆叠在卡片上方 */
+      .timeline-period {
+        position: static !important;
+        width: auto !important;
+        text-align: left !important;
+        margin-bottom: 8px !important;
+        transform: none !important;
+        font-size: 12px !important;
+        color: #6b7280 !important;
+      }
+      /* 卡片：撑满宽度 */
+      .timeline-card {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+      }
+      .timeline-side-label { display: none !important; }
       .section-watermark { display: none !important; }
       .nav-tab span.tab-label { display: none; }
 
