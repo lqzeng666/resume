@@ -159,10 +159,11 @@
     /* ===== Hero Section ===== */
     .hero {
       min-height: 100vh; display: flex; align-items: center;
-      position: relative;
+      position: relative; padding-top: 64px;
+      box-sizing: border-box;
     }
     .hero-grid {
-      display: grid; grid-template-columns: 2fr 3fr;
+      display: grid; grid-template-columns: 1fr 1fr;
       gap: 0; align-items: center; width: 100%;
     }
     .hero-text {
@@ -263,7 +264,7 @@
     .explore-btn:hover .shine { transform: translateX(100%); }
 
     .hero-photo {
-      position: relative; height: 100vh; overflow: hidden;
+      position: relative; height: 100%; overflow: hidden;
       animation: fadeIn 1.5s ease-out;
     }
     .hero-photo img {
