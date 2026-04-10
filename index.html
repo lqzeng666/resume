@@ -3,7 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vera's Portfolio</title>
+  <title>曾柳青 Vera Zeng — AI产品经理 Portfolio</title>
+  <meta name="description" content="曾柳青 (Vera Zeng)，AI产品经理，专注AI产品设计、商业化变现与用户增长。毕业于华南理工大学，曾任职阿里巴巴Lazada、腾讯微信广告部，负责AI聊天助手、商业化产品、Agent智能体等核心项目。">
+  <meta name="keywords" content="曾柳青,AI产品经理,人工智能,商业化产品,微信广告,腾讯,阿里巴巴,Vera Zeng,AI Product Manager">
+  <meta name="author" content="Zeng Liuqing (Vera)">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://veraresume.com">
+  <meta property="og:title" content="曾柳青 Vera Zeng — AI产品经理 Portfolio">
+  <meta property="og:description" content="AI产品经理，专注AI产品设计、商业化变现与用户增长。腾讯微信广告部背景，AI聊天助手/商业化/Agent核心项目经验。">
+  <meta property="og:image" content="https://raw.githubusercontent.com/lqzeng666/resume/main/头像_替换.PNG">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="曾柳青 Vera Zeng — AI产品经理 Portfolio">
+  <meta name="twitter:description" content="AI产品经理，专注AI产品设计、商业化变现与用户增长。">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/lqzeng666/resume/main/头像_替换.PNG">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍💼</text></svg>">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zeng Liuqing (Vera)",
+    "jobTitle": "AI产品经理",
+    "description": "AI产品经理，专注AI产品设计、商业化变现与用户增长",
+    "url": "https://veraresume.com",
+    "image": "https://raw.githubusercontent.com/lqzeng666/resume/main/头像_替换.PNG",
+    "sameAs": [],
+    "knowsAbout": ["AI产品设计", "商业化变现", "用户增长", "Agent智能体", "AI聊天助手"],
+    "address": {
+      "@type": "Place",
+      "addressLocality": "深圳",
+      "addressCountry": "CN"
+    },
+    "alumniOf": [
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "华南理工大学",
+        "sameAs": ""
+      },
+      {
+        "@type": "CollegeOrUniversity",
+        "name": "香港大学",
+        "sameAs": ""
+      }
+    ],
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "腾讯微信广告部"
+      },
+      {
+        "@type": "Organization",
+        "name": "阿里巴巴 Lazada"
+      }
+    ]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -402,7 +465,8 @@
       display: flex; align-items: center; justify-content: center;
       background: #FAFAFA;
     }
-    .card-carousel .carousel-slide img {
+    .card-carousel .carousel-slide img,
+    .card-carousel .carousel-slide video {
       width: 100%; height: 100%; object-fit: contain;
     }
     .card-carousel .carousel-caption {
@@ -543,12 +607,18 @@
       cursor: zoom-out;
     }
     .lightbox.active { opacity: 1; pointer-events: auto; }
-    .lightbox img {
-      max-width: 90vw; max-height: 90vh; object-fit: contain;
+    .lightbox .lb-media-wrap {
+      max-width: 90vw; max-height: 90vh;
       border-radius: 12px; box-shadow: 0 8px 40px rgba(0,0,0,0.3);
       transform: scale(0.9); transition: transform 0.3s;
+      display: flex; align-items: center; justify-content: center;
     }
-    .lightbox.active img { transform: scale(1); }
+    .lightbox.active .lb-media-wrap { transform: scale(1); }
+    .lightbox img,
+    .lightbox video {
+      max-width: 90vw; max-height: 90vh; object-fit: contain;
+      border-radius: 12px;
+    }
     .lightbox .lb-caption {
       position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
       text-align: center; color: #fff;
@@ -1051,7 +1121,7 @@
         <div class="dot edu"></div>
         <div class="timeline-card tilt-card">
           <div class="card-header">
-            <div class="card-logo logo-full"><img src="华南理工大学-logo-1024px.png" alt="SCUT"></div>
+            <div class="card-logo logo-full"><img src="华南理工大学-logo-1024px.png" alt="SCUT" loading="lazy"></div>
             <div>
               <div class="card-title" data-en="South China University of Technology" data-zh="华南理工大学" class="i18n">华南理工大学</div>
               <div class="card-subtitle" data-en="Bachelor · International Economics and Trade" data-zh="本科 · 国际经济与贸易" class="i18n">本科 · 国际经济与贸易</div>
@@ -1075,7 +1145,7 @@
         <div class="dot edu"></div>
         <div class="timeline-card tilt-card">
           <div class="card-header">
-            <div class="card-logo"><img src="HKU.jpeg" alt="HKU"></div>
+            <div class="card-logo"><img src="HKU.jpeg" alt="HKU" loading="lazy"></div>
             <div>
               <div class="card-title" data-en="The University of Hong Kong" data-zh="香港大学" class="i18n">香港大学</div>
               <div class="card-subtitle" data-en="Master · Business Analytics" data-zh="研究生 · 商业分析" class="i18n">研究生 · 商业分析</div>
@@ -1099,7 +1169,7 @@
         <div class="dot work"></div>
         <div class="timeline-card tilt-card">
           <div class="card-header">
-            <div class="card-logo"><img src="阿里巴巴.png" alt="Alibaba"></div>
+            <div class="card-logo"><img src="阿里巴巴.png" alt="Alibaba" loading="lazy"></div>
             <div>
               <div class="card-title" data-en="Alibaba International Digital Commerce" data-zh="阿里巴巴国际数字商业集团" class="i18n">阿里巴巴国际数字商业集团</div>
               <div class="card-subtitle" data-en="Lazada Commercialization Product Manager" data-zh="Lazada商业化产品经理" class="i18n">Lazada商业化产品经理</div>
@@ -1114,26 +1184,26 @@
             <span class="course-tag i18n" data-en="AIGC Marketing" data-zh="AIGC智能营销">AIGC智能营销</span>
           </div>
           <button class="card-expand-btn" onclick="toggleCarousel(this)"><span class="blink-dot"></span><span class="i18n" data-en="View Projects" data-zh="查看成果">查看成果</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="card-carousel-peek"><img src="ChatLSS.png" alt="preview"></div>
+          <div class="card-carousel-peek"><img src="ChatLSS.png" alt="preview" loading="lazy"></div>
           <div class="card-carousel-wrap">
           <div class="card-carousel" data-interval="10000" style="width:100%;border-radius:12px;">
             <div class="carousel-track">
               <div class="carousel-slide">
-                <img src="ChatLSS.png" alt="ChatLSS">
+                <img src="ChatLSS.png" alt="ChatLSS" loading="lazy">
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="AIGC Marketing Bot" data-zh="AIGC营销机器人">AIGC营销机器人</div>
                   <div class="caption-desc i18n" data-en="Chatbot for knowledge Q&A, ad data analytics, and ad diagnostics" data-zh="Chatbot形态，支持基础知识问答、广告数据分析、广告诊断">Chatbot形态，支持基础知识问答、广告数据分析、广告诊断</div>
                 </div>
               </div>
               <div class="carousel-slide">
-                <img src="annual pass_运营侧.png" alt="年框产品运营侧">
+                <img src="annual pass_运营侧.png" alt="年框产品运营侧" loading="lazy">
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="Annual Pass — Ops Side" data-zh="展示广告年框产品（运营侧）">展示广告年框产品（运营侧）</div>
                   <div class="caption-desc i18n" data-en="Ops customize annual pass rights, payment methods, and push to advertisers" data-zh="各国运营自定义年框权益、收款方式等，并可推送对应广告主">各国运营自定义年框权益、收款方式等，并可推送对应广告主</div>
                 </div>
               </div>
               <div class="carousel-slide">
-                <img src="annual pass_广告主侧.png" alt="年框产品广告主侧">
+                <img src="annual pass_广告主侧.png" alt="年框产品广告主侧" loading="lazy">
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="Annual Pass — Advertiser Side" data-zh="展示广告年框产品（广告主侧）">展示广告年框产品（广告主侧）</div>
                   <div class="caption-desc i18n" data-en="Advertisers sign online, execute approved pass rights, and launch display ads" data-zh="广告主线上进行签约，并可对财务审核通过的年框进行权益执行，投放展示广告">广告主线上进行签约，并可对财务审核通过的年框进行权益执行，投放展示广告</div>
@@ -1154,7 +1224,7 @@
         <div class="dot work"></div>
         <div class="timeline-card tilt-card">
           <div class="card-header">
-            <div class="card-logo"><img src="02_Tencent_Vertical-logo.avif" alt="Tencent"></div>
+            <div class="card-logo"><img src="02_Tencent_Vertical-logo.avif" alt="Tencent" loading="lazy"></div>
             <div>
               <div class="card-title" data-en="Tencent" data-zh="腾讯" class="i18n">腾讯</div>
               <div class="card-subtitle" data-en="WeChat Ads Product Manager" data-zh="微信广告部产品经理" class="i18n">微信广告部产品经理</div>
@@ -1170,30 +1240,30 @@
             <span class="course-tag i18n" data-en="C-side CS Agent" data-zh="C端客服智能体">C端客服智能体</span>
           </div>
           <button class="card-expand-btn" onclick="toggleCarousel(this)"><span class="blink-dot"></span><span class="i18n" data-en="View Projects" data-zh="查看成果">查看成果</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="card-carousel-peek"><img src="朋友圈广告.jpg" alt="preview"></div>
+          <div class="card-carousel-peek"><img src="朋友圈广告.jpg" alt="preview" loading="lazy"></div>
           <div class="card-carousel-wrap">
           <div class="card-carousel" data-interval="10000" style="width:100%;border-radius:12px;">
             <div class="carousel-track">
               <div class="carousel-slide">
-                <img src="朋友圈广告.jpg" alt="朋友圈广告">
+                <img src="朋友圈广告.jpg" alt="朋友圈广告" loading="lazy">
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="Moments Ads Revenue Growth" data-zh="朋友圈广告专项提收">朋友圈广告专项提收</div>
                 </div>
               </div>
               <div class="carousel-slide">
-                <img src="问答组件.GIF" alt="问答组件">
+                <video src="问答组件.webm" autoplay loop muted playsinline></video>
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="Q&A Component — New Ad Format" data-zh="&quot;问答组件&quot;创新形态链路">"问答组件"创新形态链路</div>
                 </div>
               </div>
               <div class="carousel-slide">
-                <img src="互动问答_hd.gif" alt="互动问答">
+                <video src="互动问答_hd.webm" autoplay loop muted playsinline></video>
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="Interactive Q&A Lead Funnel" data-zh="&quot;互动问答&quot;筛客链路建设">"互动问答"筛客链路建设</div>
                 </div>
               </div>
               <div class="carousel-slide">
-                <img src="侧边栏.jpg" alt="侧边栏">
+                <img src="侧边栏.jpg" alt="侧边栏" loading="lazy">
                 <div class="carousel-caption">
                   <div class="caption-title i18n" data-en="WeCom Sidebar — Q&A Results" data-zh="企微侧边栏-问答结果">企微侧边栏-问答结果</div>
                 </div>
@@ -1732,7 +1802,7 @@
     // ===== Lightbox =====
     const lb = document.createElement('div');
     lb.className = 'lightbox';
-    lb.innerHTML = '<button class="lb-nav lb-prev">‹</button><img src="" alt=""><button class="lb-nav lb-next">›</button><div class="lb-caption"><div class="caption-title"></div><div class="caption-desc"></div></div>';
+    lb.innerHTML = '<button class="lb-nav lb-prev">‹</button><div class="lb-media-wrap"><img src="" alt="" loading="lazy"><video src="" autoplay loop muted playsinline style="display:none"></video></div><button class="lb-nav lb-next">›</button><div class="lb-caption"><div class="caption-title"></div><div class="caption-desc"></div></div>';
     document.body.appendChild(lb);
 
     let lbSlides = [], lbIndex = 0;
@@ -1740,9 +1810,20 @@
     function lbShow(index) {
       lbIndex = (index + lbSlides.length) % lbSlides.length;
       const slide = lbSlides[lbIndex];
-      const img = slide.querySelector('img');
+      const imgEl = slide.querySelector('img');
+      const vidEl = slide.querySelector('video');
       const caption = slide.querySelector('.carousel-caption');
-      lb.querySelector('img').src = img.src;
+      const lbImg = lb.querySelector('img');
+      const lbVid = lb.querySelector('video');
+      if (vidEl && vidEl.src) {
+        lbImg.style.display = 'none';
+        lbVid.style.display = 'block';
+        lbVid.src = vidEl.src;
+      } else {
+        lbImg.style.display = 'block';
+        lbVid.style.display = 'none';
+        lbImg.src = imgEl ? imgEl.src : '';
+      }
       lb.querySelector('.caption-title').textContent = caption && caption.querySelector('.caption-title') ? caption.querySelector('.caption-title').textContent : '';
       lb.querySelector('.caption-desc').textContent = caption && caption.querySelector('.caption-desc') ? caption.querySelector('.caption-desc').textContent : '';
     }
