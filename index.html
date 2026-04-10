@@ -263,12 +263,11 @@
     .explore-btn:hover .shine { transform: translateX(100%); }
 
     .hero-photo {
-      position: relative; height: 100vh; overflow: hidden;
+      position: relative; height: 100%; overflow: hidden;
       animation: fadeIn 1.5s ease-out;
-      margin-top: 64px;
     }
     .hero-photo img {
-      width: 100%; height: 100%; object-fit: cover;
+      width: 100%; height: 100%; min-height: 400px; object-fit: cover;
       object-position: center 20%;
     }
     .hero-photo .overlay-bottom { display: none; }
@@ -978,8 +977,8 @@
     @media (max-width: 768px) {
       .hero-grid { grid-template-columns: 1fr; }
       .hero-text { padding: 100px 24px 40px; }
-      .hero-photo { height: 60vh; }
-      .hero-photo img { object-position: center 10%; }
+      .hero-photo { height: 60vh; min-height: 300px; }
+      .hero-photo img { object-position: center 10%; min-height: 300px; }
       .hero-name { font-size: 48px; }
 
       /* ===== Timeline 移动端重写 ===== */
@@ -1077,7 +1076,7 @@
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero" id="hero">
+  <section class="hero" id="hero" style="scroll-margin-top: 64px;">
     <div class="hero-grid">
       <div class="hero-text">
         <div class="hero-badge i18n" data-en="Commercialization X AI&lt;br&gt;Product Manager" data-zh="商业化 X AI 产品经理">商业化 X AI 产品经理</div>
@@ -1142,7 +1141,7 @@
   </section>
 
   <!-- Journey / Timeline Section -->
-  <section class="journey-section" id="journey">
+  <section class="journey-section" id="journey" style="scroll-margin-top: 64px;">
     <div class="section-header">
       <h2>
         <span class="text-gradient" data-en="My Journey" data-zh="我的历程" class="i18n">我的历程</span>
@@ -1315,7 +1314,7 @@
   </section>
 
   <!-- Skills / Competency Section -->
-  <section class="skills-section" id="skills">
+  <section class="skills-section" id="skills" style="scroll-margin-top: 64px;">
     <div class="section-header">
       <h2>
         <span class="text-gradient i18n" data-en="Commercialization X AI Projects" data-zh="商业化 X AI 项目">商业化 X AI 项目</span>
