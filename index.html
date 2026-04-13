@@ -1040,6 +1040,11 @@
       box-sizing: border-box;
       overflow: hidden;
       position: relative;
+      cursor: grab;
+      user-select: none;
+    }
+    .book-image-grid:active {
+      cursor: grabbing;
     }
     .book-image-grid .grid-track {
       display: flex;
@@ -3018,6 +3023,74 @@
     }
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ===== 图片轮播手动滑动支持 =====
+    document.querySelectorAll('.book-image-grid').forEach(function(grid) {
+      var track = grid.querySelector('.grid-track');
+      if (!track) return;
+      var startX = 0, currentX = 0, isDragging = false, startScroll = 0;
+
+      function getTranslateX() {
+        var st = getComputedStyle(track);
+        var matrix = new DOMMatrix(st.transform);
+        return matrix.m41;
+      }
+
+      function onStart(x) {
+        isDragging = true;
+        startX = x;
+        track.style.animationPlayState = 'paused';
+        startScroll = getTranslateX();
+        track.style.animation = 'none';
+        track.style.transform = 'translateX(' + startScroll + 'px)';
+      }
+
+      function onMove(x) {
+        if (!isDragging) return;
+        var diff = x - startX;
+        track.style.transform = 'translateX(' + (startScroll + diff) + 'px)';
+      }
+
+      function onEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        // 恢复自动滚动
+        var currentPos = getTranslateX();
+        var halfWidth = track.scrollWidth / 2;
+        // 如果超出范围，重置到合理位置
+        if (currentPos > 0) currentPos = 0;
+        if (Math.abs(currentPos) > halfWidth) currentPos = -(halfWidth - 100);
+        track.style.transform = 'translateX(' + currentPos + 'px)';
+        // 3秒后恢复自动滚动
+        setTimeout(function() {
+          track.style.animation = '';
+          track.style.transform = '';
+          track.style.animationPlayState = '';
+        }, 3000);
+      }
+
+      // 触摸事件
+      grid.addEventListener('touchstart', function(e) {
+        onStart(e.touches[0].clientX);
+      }, {passive: true});
+      grid.addEventListener('touchmove', function(e) {
+        onMove(e.touches[0].clientX);
+      }, {passive: true});
+      grid.addEventListener('touchend', onEnd);
+
+      // 鼠标拖拽
+      grid.addEventListener('mousedown', function(e) {
+        onStart(e.clientX);
+        e.preventDefault();
+      });
+      grid.addEventListener('mousemove', function(e) {
+        onMove(e.clientX);
+      });
+      grid.addEventListener('mouseup', onEnd);
+      grid.addEventListener('mouseleave', function() {
+        if (isDragging) onEnd();
+      });
     });
   </script>
 </body>
