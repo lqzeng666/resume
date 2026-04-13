@@ -1154,12 +1154,17 @@
       flex-shrink: 0;
     }
     .book-page-icon {
-      width: 38px; height: 38px; border-radius: 12px;
+      width: 48px; height: 48px; border-radius: 12px;
       background: transparent;
       display: flex; align-items: center; justify-content: center;
       font-size: 18px; flex-shrink: 0;
       border: none;
       overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .book-page-icon:hover {
+      transform: scale(1.1);
     }
     .book-page-icon img {
       width: 100%; height: 100%; object-fit: contain;
@@ -2001,7 +2006,7 @@
   <section class="journey-section" id="journey" style="scroll-margin-top: 64px;">
     <div class="section-header">
       <h2>
-        <span class="text-gradient" data-en="My Journey" data-zh="我的历程" class="i18n">我的历程</span>
+        <span class="text-gradient i18n" data-en="My Journey" data-zh="我的历程">我的历程</span>
       </h2>
     </div>
 
@@ -2014,8 +2019,8 @@
           <div class="card-header">
             <div class="card-logo logo-full"><img src="华南理工大学-logo-1024px.png" alt="SCUT" loading="lazy"></div>
             <div>
-              <div class="card-title" data-en="South China University of Technology" data-zh="华南理工大学" class="i18n">华南理工大学</div>
-              <div class="card-subtitle" data-en="Bachelor · International Economics and Trade" data-zh="本科 · 国际经济与贸易" class="i18n">本科 · 国际经济与贸易</div>
+              <div class="card-title i18n" data-en="South China University of Technology" data-zh="华南理工大学">华南理工大学</div>
+              <div class="card-subtitle i18n" data-en="Bachelor · International Economics and Trade" data-zh="本科 · 国际经济与贸易">本科 · 国际经济与贸易</div>
             </div>
           </div>
           <div class="course-tags" style="margin-top:8px">
@@ -2038,8 +2043,8 @@
           <div class="card-header">
             <div class="card-logo"><img src="HKU.jpeg" alt="HKU" loading="lazy"></div>
             <div>
-              <div class="card-title" data-en="The University of Hong Kong" data-zh="香港大学" class="i18n">香港大学</div>
-              <div class="card-subtitle" data-en="Master · Business Analytics" data-zh="研究生 · 商业分析" class="i18n">研究生 · 商业分析</div>
+              <div class="card-title i18n" data-en="The University of Hong Kong" data-zh="香港大学">香港大学</div>
+              <div class="card-subtitle i18n" data-en="Master · Business Analytics" data-zh="研究生 · 商业分析">研究生 · 商业分析</div>
             </div>
           </div>
           <div class="course-tags" style="margin-top:8px">
@@ -2062,11 +2067,11 @@
           <div class="card-header">
             <div class="card-logo"><img src="阿里巴巴.png" alt="Alibaba" loading="lazy"></div>
             <div>
-              <div class="card-title" data-en="Alibaba International Digital Commerce" data-zh="阿里巴巴国际数字商业集团" class="i18n">阿里巴巴国际数字商业集团</div>
-              <div class="card-subtitle" data-en="Lazada Commercialization Product Manager" data-zh="Lazada商业化产品经理" class="i18n">Lazada商业化产品经理</div>
+              <div class="card-title i18n" data-en="Alibaba International Digital Commerce" data-zh="阿里巴巴国际数字商业集团">阿里巴巴国际数字商业集团</div>
+              <div class="card-subtitle i18n" data-en="Lazada Commercialization Product Manager" data-zh="Lazada商业化产品经理">Lazada商业化产品经理</div>
             </div>
           </div>
-          <div class="card-desc-summary">主导展示广告投放产品优化与智能诊断模块创新，通过年框全流程线上化实现了权益使用率从<span class="hl hl-bg">15%</span>跃升至<span class="hl hl-bg">95%</span>、年框收入提升<span class="hl hl-bg">50%</span>，通过从0-1搭建智能营销机器人实现建议采纳率对比表单建议增长<span class="hl hl-bg">6倍</span></div>
+          <div class="card-desc-summary i18n" data-zh="主导展示广告投放产品优化与智能诊断模块创新，通过年框全流程线上化实现了权益使用率从15%跃升至95%、年框收入提升50%，通过从0-1搭建智能营销机器人实现建议采纳率对比表单建议增长6倍" data-en="Led display ad product optimization and smart diagnosis innovation. Achieved annual pass rights usage rate from 15% to 95%, revenue +50% via full online workflow; built AIGC marketing bot from 0→1, achieving 6x recommendation adoption vs. form-based suggestions">主导展示广告投放产品优化与智能诊断模块创新，通过年框全流程线上化实现了权益使用率从<span class="hl hl-bg">15%</span>跃升至<span class="hl hl-bg">95%</span>、年框收入提升<span class="hl hl-bg">50%</span>，通过从0-1搭建智能营销机器人实现建议采纳率对比表单建议增长<span class="hl hl-bg">6倍</span></div>
           <div class="course-tags" style="margin-top:8px">
             <span class="course-tag i18n" data-en="E-commerce Ads" data-zh="电商广告">电商广告</span>
             <span class="course-tag i18n" data-en="Ad Platform" data-zh="投放端产品">投放端产品</span>
@@ -2117,8 +2122,8 @@
           <div class="card-header">
             <div class="card-logo"><img src="02_Tencent_Vertical-logo.avif" alt="Tencent" loading="lazy"></div>
             <div>
-              <div class="card-title" data-en="Tencent" data-zh="腾讯" class="i18n">腾讯</div>
-              <div class="card-subtitle" data-en="WeChat Ads Product Manager" data-zh="微信广告部产品经理" class="i18n">微信广告部产品经理</div>
+              <div class="card-title i18n" data-en="Tencent" data-zh="腾讯">腾讯</div>
+              <div class="card-subtitle i18n" data-en="WeChat Ads Product Manager" data-zh="微信广告部产品经理">微信广告部产品经理</div>
             </div>
           </div>
           <div class="card-desc-summary">主导朋友圈广告商业化专项，通过AI素材供给、智能组件优选及流量变现模式创新，分别实现了常规9图渗透率<span class="hl hl-bg">翻倍</span>、推荐组件日耗从<span class="hl hl-bg">0→163万</span>；主导企业微信链路能力迭代专项，通过互动问答筛客、客服链路创新及智能匹配策略，分别实现了线索有效率从<span class="hl hl-bg">20%</span>跃升至<span class="hl hl-bg">80%</span>、组件日耗从<span class="hl hl-bg">0→300万</span>、后效成本降低<span class="hl hl-bg">15%</span></div>
@@ -2219,7 +2224,7 @@
         <!-- Project 1: 投放端AIGC智能营销机器人 -->
         <div class="book-page book-page-left" id="bookPage0">
           <div class="book-page-header">
-            <div class="book-page-icon"><img src="1、ChatLSS icon.PNG" alt="ChatLSS"></div>
+            <div class="book-page-icon" onclick="openLightbox(this)"><img src="1、ChatLSS icon.PNG" alt="ChatLSS"></div>
             <div>
               <div class="book-page-title i18n" data-zh="投放端AIGC智能营销机器人" data-en="AIGC Smart Marketing Bot">投放端AIGC智能营销机器人</div>
               <div class="book-page-sub i18n" data-zh="阿里巴巴Lazada Group · 广告团队" data-en="Alibaba Lazada Group · Ads Team">阿里巴巴Lazada Group · 广告团队</div>
@@ -2277,11 +2282,11 @@
           <div class="book-page book-page-right" id="bookPageRight0">
             <div class="book-static-images">
               <div class="static-img-item" onclick="openLightbox(this)">
-                <div class="grid-caption"><span class="caption-num">1</span> 交互入口</div>
+                <div class="grid-caption i18n" data-zh="<span class=caption-num>1</span> 交互入口" data-en="<span class=caption-num>1</span> Chat Entry"><span class="caption-num">1</span> 交互入口</div>
                 <img src="1、ChatLSS-交互入口.png" alt="ChatLSS交互入口" loading="lazy">
               </div>
               <div class="static-img-item" onclick="openLightbox(this)">
-                <div class="grid-caption"><span class="caption-num">2</span> 广告计划选择</div>
+                <div class="grid-caption i18n" data-zh="<span class=caption-num>2</span> 广告计划选择" data-en="<span class=caption-num>2</span> Campaign Select"><span class="caption-num">2</span> 广告计划选择</div>
                 <img src="2、ChatLSS-广告计划选择.png" alt="ChatLSS广告计划选择" loading="lazy">
               </div>
             </div>
@@ -2297,7 +2302,7 @@
         <!-- Project 2: 企微专项-微信客服链路AI探索 -->
         <div class="book-page book-page-left" id="bookPage1" style="display:none;">
           <div class="book-page-header">
-            <div class="book-page-icon"><img src="2、微信客服icon.PNG" alt="微信客服"></div>
+            <div class="book-page-icon" onclick="openLightbox(this)"><img src="2、微信客服icon.PNG" alt="微信客服"></div>
             <div>
               <div class="book-page-title i18n" data-zh="微信客服链路AI探索专项" data-en="WeChat CS AI Initiative">微信客服链路AI探索专项</div>
               <div class="book-page-sub i18n" data-zh="腾讯微信广告部 · 深圳" data-en="Tencent WeChat Ads · Shenzhen">腾讯微信广告部 · 深圳</div>
@@ -2376,44 +2381,44 @@
               <div class="grid-track">
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-广告外层.jpg" alt="广告外层" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">1</span> 广告外层</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>1</span> 广告外层" data-en="<span class=caption-num>1</span> Ad Outer Layer"><span class="caption-num">1</span> 广告外层</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-问题半屏.jpg" alt="问题半屏" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">2</span> 问题半屏</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>2</span> 问题半屏" data-en="<span class=caption-num>2</span> Q&A Half-screen"><span class="caption-num">2</span> 问题半屏</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-开口.jpg" alt="开口对话" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">3</span> 开口对话</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>3</span> 开口对话" data-en="<span class=caption-num>3</span> Chat Opening"><span class="caption-num">3</span> 开口对话</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-转化.jpg" alt="转化留资" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">4</span> 转化留资</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>4</span> 转化留资" data-en="<span class=caption-num>4</span> Lead Conversion"><span class="caption-num">4</span> 转化留资</div>
                 </div>
                 <!-- 循环间隔：无箭头，用空白分隔 -->
                 <div style="width:32px;flex-shrink:0;"></div>
                 <!-- 复制一份用于无缝循环 -->
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-广告外层.jpg" alt="广告外层" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">1</span> 广告外层</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>1</span> 广告外层" data-en="<span class=caption-num>1</span> Ad Outer Layer"><span class="caption-num">1</span> 广告外层</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-问题半屏.jpg" alt="问题半屏" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">2</span> 问题半屏</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>2</span> 问题半屏" data-en="<span class=caption-num>2</span> Q&A Half-screen"><span class="caption-num">2</span> 问题半屏</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-开口.jpg" alt="开口对话" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">3</span> 开口对话</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>3</span> 开口对话" data-en="<span class=caption-num>3</span> Chat Opening"><span class="caption-num">3</span> 开口对话</div>
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
                   <img src="智能体-转化.jpg" alt="转化留资" loading="lazy">
-                  <div class="grid-caption"><span class="caption-num">4</span> 转化留资</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>4</span> 转化留资" data-en="<span class=caption-num>4</span> Lead Conversion"><span class="caption-num">4</span> 转化留资</div>
                 </div>
               </div>
             </div>
@@ -2424,7 +2429,7 @@
         <!-- Project 3: 朋友圈九图AI衍生 -->
         <div class="book-page book-page-left" id="bookPage2" style="display:none;">
           <div class="book-page-header">
-            <div class="book-page-icon"><img src="3、朋友圈icon.jpg" alt="朋友圈"></div>
+            <div class="book-page-icon" onclick="openLightbox(this)"><img src="3、朋友圈icon.jpg" alt="朋友圈"></div>
             <div>
               <div class="book-page-title i18n" data-zh="朋友圈九图素材AI衍生专项" data-en="Moments 9-Grid AI Creative">朋友圈九图素材AI衍生专项</div>
               <div class="book-page-sub i18n" data-zh="腾讯微信广告部 · 深圳" data-en="Tencent WeChat Ads · Shenzhen">腾讯微信广告部 · 深圳</div>
@@ -2491,64 +2496,64 @@
             <div class="book-image-grid">
               <div class="grid-track">
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">1</span> 九图广告示意</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>1</span> 九图广告示意" data-en="<span class=caption-num>1</span> 9-Grid Ad Demo"><span class="caption-num">1</span> 九图广告示意</div>
                   <img src="九图广告示意.jpg" alt="九图广告示意" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">2</span> 小店商品九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>2</span> 小店商品九图" data-en="<span class=caption-num>2</span> Mini Shop 9-Grid"><span class="caption-num">2</span> 小店商品九图</div>
                   <img src="小店商品九图衍生.jpg" alt="小店商品九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">3</span> 减肥药品九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>3</span> 减肥药品九图" data-en="<span class=caption-num>3</span> Diet Product 9-Grid"><span class="caption-num">3</span> 减肥药品九图</div>
                   <img src="减肥药品九图衍生.png" alt="减肥药品九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">4</span> 少儿九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>4</span> 少儿九图" data-en="<span class=caption-num>4</span> Kids 9-Grid"><span class="caption-num">4</span> 少儿九图</div>
                   <img src="少儿九图衍生.png" alt="少儿九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">5</span> 家政服务九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>5</span> 家政服务九图" data-en="<span class=caption-num>5</span> Home Service 9-Grid"><span class="caption-num">5</span> 家政服务九图</div>
                   <img src="家政服务九图衍生.png" alt="家政服务九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">6</span> 全屋定制九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>6</span> 全屋定制九图" data-en="<span class=caption-num>6</span> Home Design 9-Grid"><span class="caption-num">6</span> 全屋定制九图</div>
                   <img src="全屋定制九图衍生.png" alt="全屋定制九图" loading="lazy">
                 </div>
                 <!-- 循环间隔 -->
                 <div style="width:32px;flex-shrink:0;"></div>
                 <!-- 复制一份用于无缝循环 -->
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">1</span> 九图广告示意</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>1</span> 九图广告示意" data-en="<span class=caption-num>1</span> 9-Grid Ad Demo"><span class="caption-num">1</span> 九图广告示意</div>
                   <img src="九图广告示意.jpg" alt="九图广告示意" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">2</span> 小店商品九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>2</span> 小店商品九图" data-en="<span class=caption-num>2</span> Mini Shop 9-Grid"><span class="caption-num">2</span> 小店商品九图</div>
                   <img src="小店商品九图衍生.jpg" alt="小店商品九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">3</span> 减肥药品九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>3</span> 减肥药品九图" data-en="<span class=caption-num>3</span> Diet Product 9-Grid"><span class="caption-num">3</span> 减肥药品九图</div>
                   <img src="减肥药品九图衍生.png" alt="减肥药品九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">4</span> 少儿九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>4</span> 少儿九图" data-en="<span class=caption-num>4</span> Kids 9-Grid"><span class="caption-num">4</span> 少儿九图</div>
                   <img src="少儿九图衍生.png" alt="少儿九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">5</span> 家政服务九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>5</span> 家政服务九图" data-en="<span class=caption-num>5</span> Home Service 9-Grid"><span class="caption-num">5</span> 家政服务九图</div>
                   <img src="家政服务九图衍生.png" alt="家政服务九图" loading="lazy">
                 </div>
                 <div class="grid-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                 <div class="grid-item" onclick="openLightbox(this)">
-                  <div class="grid-caption"><span class="caption-num">6</span> 全屋定制九图</div>
+                  <div class="grid-caption i18n" data-zh="<span class=caption-num>6</span> 全屋定制九图" data-en="<span class=caption-num>6</span> Home Design 9-Grid"><span class="caption-num">6</span> 全屋定制九图</div>
                   <img src="全屋定制九图衍生.png" alt="全屋定制九图" loading="lazy">
                 </div>
               </div>
